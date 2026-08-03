@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:#08090c; color:#cdd4e0;
+    font:300 16px/1.6 system-ui,-apple-system,'Segoe UI',sans-serif;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:0 92px; position:relative;
+    -webkit-font-smoothing:antialiased;   /* kills subpixel colour fringing in the render */
+  }
+  body::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(520px 520px at 18% 6%,  rgba(232,179,74,.10), transparent 62%),
+      radial-gradient(560px 560px at 86% 88%, rgba(126,168,69,.085), transparent 64%);
+  }
+  .in{position:relative}
+  h1{font-size:188px; line-height:.9; font-weight:200; letter-spacing:.02em; margin-left:-.02em}
+  h1 .ai{color:#e8b34a; font-weight:500}
+  p{margin-top:34px; color:#727a8c; font-size:25px; letter-spacing:.01em}
+  .row{margin-top:52px; display:flex; gap:34px; font-size:14px; letter-spacing:.3em; text-transform:uppercase}
+  .row b{font-weight:400}
+  .a{color:#e8b34a} .g{color:#7ea845} .d{color:#464d5d}
+</style></head>
+<body><div class="in">
+  <h1>MANK<span class="ai">AI</span></h1>
+  <p>Two pieces about one place, and what time does to it.</p>
+  <div class="row"><b class="a">ECLIPSE</b><b class="d">·</b><b class="g">PASSAGE OF TIME</b></div>
+</div></body></html>

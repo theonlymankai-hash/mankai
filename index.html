@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mank Ai</title>
+<meta name="description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta name="author" content="Mank Ai">
+<meta name="theme-color" content="#08090c">
+<link rel="canonical" href="https://mankai.art/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mank Ai">
+<meta property="og:url" content="https://mankai.art/">
+<meta property="og:title" content="Mank Ai">
+<meta property="og:description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta property="og:image" content="https://mankai.art/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The wordmark MANK AI on a near-black field, the AI in amber.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mank Ai">
+<meta name="twitter:description" content="Work made with AI. ECLIPSE — the 2026 total solar eclipse, previsualised. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta name="twitter:image" content="https://mankai.art/preview.png">
+<!-- inline favicon: a corona ring — the shape both pieces circle around -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2308090c'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23e8b34a' stroke-width='5'/%3E%3C/svg%3E">
+<style>
+  :root{
+    /* --dim and --faint are kept as low as AA contrast on this background allows
+       (≈6:1 and ≈4.6:1) — any quieter and the small caps stop being readable */
+    --bg:#08090c; --ink:#cdd4e0; --dim:#8b93a4; --faint:#767e91;
+    --line:#191d27; --panel:#0c0e14;
+    --amber:#e8b34a;      /* ECLIPSE */
+    --green:#7ea845;      /* PASSAGE OF TIME */
+    --accent:var(--amber);
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:300 16px/1.6 var(--sans);
+    /* nothing may push the page sideways — the wordmark is deliberately huge */
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* slow drift of two coloured pools, one per piece. purely decorative, and it
+     stops entirely under prefers-reduced-motion (see the media query below). */
+  body::before{
+    content:''; position:fixed; inset:-25vmax; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(42vmax 42vmax at 22% 8%,  rgba(232,179,74,.075), transparent 62%),
+      radial-gradient(46vmax 46vmax at 82% 72%, rgba(126,168,69,.065), transparent 64%);
+    animation:drift 64s ease-in-out infinite alternate;
+  }
+  @keyframes drift{
+    from{transform:translate3d(-2%,-1.5%,0) scale(1);}
+    to  {transform:translate3d(3%,2.5%,0) scale(1.08);}
+  }
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(20px,5vw,48px);}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:5px; border-radius:3px;}
+
+  /* ── masthead ─────────────────────────────────────────────────────────── */
+  header{padding:clamp(64px,13vh,150px) 0 clamp(48px,9vh,96px);}
+  h1{
+    font-size:clamp(3rem,16.5vw,8.75rem); line-height:.9; font-weight:200;
+    letter-spacing:.02em; margin-left:-.02em;
+  }
+  /* the split is carried by weight + colour, not by a space or a caption */
+  h1 .mank{color:var(--ink); font-weight:200;}
+  h1 .ai{color:var(--amber); font-weight:500;}
+  h1 .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  header p{
+    margin-top:clamp(20px,3.5vh,32px); max-width:34ch;
+    color:var(--dim); font-size:clamp(.95rem,2.4vw,1.125rem); line-height:1.65;
+  }
+
+  /* ── pieces ───────────────────────────────────────────────────────────── */
+  .pieces{display:flex; flex-direction:column; gap:clamp(28px,5vw,56px); padding-bottom:clamp(56px,10vh,110px);}
+  .card{
+    --accent:var(--amber);
+    display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:clamp(20px,4vw,52px); align-items:center;
+    padding:clamp(16px,2.2vw,26px);
+    text-decoration:none; color:inherit;
+    border:1px solid var(--line); border-radius:14px;
+    background:linear-gradient(160deg,var(--panel),#0a0b10);
+    transition:transform .45s cubic-bezier(.2,.7,.3,1), border-color .45s, box-shadow .45s;
+  }
+  .card.green{--accent:var(--green);}
+  /* the zigzag: every second card puts its image on the right. adding a third
+     and fourth piece needs no new css — the pattern just carries on. */
+  .card:nth-child(even) .shot{order:2;}
+  .card:hover, .card:focus-visible{
+    transform:translateY(-5px);
+    border-color:color-mix(in srgb,var(--accent) 45%,var(--line));
+    box-shadow:0 22px 48px -28px color-mix(in srgb,var(--accent) 55%,transparent);
+  }
+
+  .shot{
+    position:relative; aspect-ratio:1200/630; overflow:hidden;
+    border-radius:9px; background:#0a0c11;
+  }
+  /* the placeholder lives underneath the image, so a 404 (or a slow load, or an
+     image that doesn't exist yet) degrades to a tinted block with the piece's
+     name in it rather than a broken-image glyph */
+  .shot::before{
+    content:attr(data-ph); position:absolute; inset:0; display:flex;
+    align-items:center; justify-content:center;
+    font-size:clamp(.6rem,1.5vw,.75rem); letter-spacing:.42em; text-indent:.42em;
+    color:color-mix(in srgb,var(--accent) 62%,#5a6070);
+    background:
+      radial-gradient(120% 90% at 30% 18%, color-mix(in srgb,var(--accent) 16%,transparent), transparent 70%),
+      linear-gradient(150deg,#12151d,#090a0e);
+  }
+  .shot img{
+    position:relative; width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .6s cubic-bezier(.2,.7,.3,1), opacity .4s;
+  }
+  .shot img.failed{opacity:0;}          /* reveal the placeholder underneath */
+  .card:hover .shot img{transform:scale(1.028);}
+
+  .meta{min-width:0; padding:clamp(4px,1vw,10px) 0;}
+  .idx{
+    display:block; font-size:.6875rem; letter-spacing:.34em; color:var(--faint);
+    margin-bottom:clamp(12px,2vw,18px);
+  }
+  .card h2{
+    font-size:clamp(1.5rem,4.6vw,2.5rem); font-weight:200; line-height:1.08;
+    letter-spacing:.055em; color:var(--accent);
+  }
+  .card .sub{
+    display:block; margin-top:10px; font-size:.6875rem; letter-spacing:.24em;
+    color:var(--faint); text-transform:uppercase;
+  }
+  .card p{margin-top:clamp(14px,2.2vw,20px); color:var(--dim); max-width:46ch; font-size:clamp(.9rem,2.2vw,1rem);}
+  .go{
+    display:inline-flex; align-items:center; gap:.6em; margin-top:clamp(16px,2.6vw,24px);
+    font-size:.6875rem; letter-spacing:.24em; text-transform:uppercase;
+    color:color-mix(in srgb,var(--accent) 80%,var(--ink));
+  }
+  .go svg{width:16px; height:8px; transition:transform .4s cubic-bezier(.2,.7,.3,1);}
+  .card:hover .go svg{transform:translateX(5px);}
+
+  /* ── footer ───────────────────────────────────────────────────────────── */
+  footer{
+    border-top:1px solid var(--line); padding:clamp(28px,5vh,40px) 0 clamp(40px,7vh,64px);
+    display:flex; flex-wrap:wrap; gap:10px 28px; align-items:baseline;
+    font-size:.8125rem; color:var(--faint);
+  }
+  footer .name{color:var(--dim); letter-spacing:.22em; text-transform:uppercase; font-size:.6875rem;}
+
+  /* ── narrow ───────────────────────────────────────────────────────────── */
+  @media (max-width:760px){
+    .card{grid-template-columns:1fr; gap:20px;}
+    .card:nth-child(even) .shot{order:0;}   /* stacked: image always on top */
+    .card p{max-width:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body::before{animation:none;}
+    *,*::before,*::after{transition-duration:.01ms !important; animation-duration:.01ms !important; animation-iteration-count:1 !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1><span class="mank">MANK</span><span class="ai">AI</span></h1>
+    <p>Two pieces about one place, and what time does to it.</p>
+  </header>
+
+  <main class="pieces">
+
+    <a class="card" href="https://eclipse.mankai.art">
+      <div class="shot" data-ph="ECLIPSE">
+        <img src="https://eclipse.mankai.art/preview.png" width="1200" height="630"
+             loading="lazy" decoding="async"
+             alt="The ECLIPSE tool: the sun and moon at true altitude and azimuth above a horizon, with the shadow path drawn across a map.">
+      </div>
+      <div class="meta">
+        <span class="idx">01</span>
+        <h2>ECLIPSE</h2>
+        <span class="sub">12 August 2026 · previsualisation</span>
+        <p>Where the sun and moon will actually be on the day, from any spot on earth — a ground view, the totality band on map and globe with the umbra moving live, and the shadow cones seen from space. Real ephemeris, computed in the browser, works with no signal.</p>
+        <span class="go">eclipse.mankai.art
+          <svg viewBox="0 0 16 8" fill="none" aria-hidden="true"><path d="M0 4h14M11 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="card green" href="https://tree.mankai.art">
+      <div class="shot" data-ph="PASSAGE OF TIME">
+        <img src="https://tree.mankai.art/preview.png" width="1200" height="630"
+             loading="lazy" decoding="async"
+             alt="A gaussian-splat reconstruction of an oak tree in autumn colour against a dark sky.">
+      </div>
+      <div class="meta">
+        <span class="idx">02</span>
+        <h2>PASSAGE OF TIME</h2>
+        <span class="sub">Lloyd Park, Croydon · gaussian splat</span>
+        <p>One oak, photographed across the seasons and rebuilt as a 3D gaussian splat. A whole year folded into a seamless sixty-three second loop, with music.</p>
+        <span class="go">tree.mankai.art
+          <svg viewBox="0 0 16 8" fill="none" aria-hidden="true"><path d="M0 4h14M11 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg>
+        </span>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    <span class="name">Mank Ai</span>
+    <span>Work made with AI, by an artist.</span>
+  </footer>
+
+</div>
+
+<script>
+  /* If a preview image can't be fetched, fade it out and let the tinted
+     placeholder behind it stand in. Handles both "errored later" and
+     "already errored before this script ran". */
+  for (const img of document.images) {
+    const fail = () => img.classList.add('failed');
+    img.addEventListener('error', fail);
+    if (img.complete && img.naturalWidth === 0) fail();
+  }
+</script>
+</body>
+</html>
