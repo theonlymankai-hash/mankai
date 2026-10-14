@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Mank Ai</title>
-<meta name="description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta name="description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat. ZOETROPE — one walk turned into a seamless loop.">
 <meta name="author" content="Mank Ai">
 <meta name="theme-color" content="#08090c">
 <link rel="canonical" href="https://mankai.art/">
@@ -12,14 +12,14 @@
 <meta property="og:site_name" content="Mank Ai">
 <meta property="og:url" content="https://mankai.art/">
 <meta property="og:title" content="Mank Ai">
-<meta property="og:description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta property="og:description" content="Work made with AI. ECLIPSE — a previsualisation tool for the total solar eclipse of 12 August 2026. Passage of Time — one oak through a year as a 3D gaussian splat. ZOETROPE — one walk turned into a seamless loop.">
 <meta property="og:image" content="https://mankai.art/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The wordmark MANK AI on a near-black field, the AI in amber.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mank Ai">
-<meta name="twitter:description" content="Work made with AI. ECLIPSE — the 2026 total solar eclipse, previsualised. Passage of Time — one oak through a year as a 3D gaussian splat.">
+<meta name="twitter:description" content="Work made with AI. ECLIPSE — the 2026 total solar eclipse, previsualised. Passage of Time — one oak through a year as a 3D gaussian splat. ZOETROPE — one walk turned into a seamless loop.">
 <meta name="twitter:image" content="https://mankai.art/preview.png">
 <!-- inline favicon: a corona ring — the shape both pieces circle around -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2308090c'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23e8b34a' stroke-width='5'/%3E%3C/svg%3E">
@@ -31,6 +31,7 @@
     --line:#191d27; --panel:#0c0e14;
     --amber:#e8b34a;      /* ECLIPSE */
     --green:#7ea845;      /* PASSAGE OF TIME */
+    --lilac:#b7a6ea;      /* ZOETROPE: the corridor light */
     --accent:var(--amber);
     --sans:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
   }
@@ -89,6 +90,7 @@
     transition:transform .45s cubic-bezier(.2,.7,.3,1), border-color .45s, box-shadow .45s;
   }
   .card.green{--accent:var(--green);}
+  .card.lilac{--accent:var(--lilac);}
   /* the zigzag: every second card puts its image on the right. adding a third
      and fourth piece needs no new css — the pattern just carries on. */
   .card:nth-child(even) .shot{order:2;}
@@ -169,7 +171,7 @@
 
   <header>
     <h1><span class="mank">MANK</span><span class="ai">AI</span></h1>
-    <p>Two pieces about one place, and what time does to it.</p>
+    <p>Pieces about time — what it does to a place, and to a walk.</p>
   </header>
 
   <main class="pieces">
@@ -203,6 +205,22 @@
         <span class="sub">Lloyd Park, Croydon · gaussian splat</span>
         <p>One oak in Lloyd Park, photographed through a whole year and rebuilt as a cloud of points you can walk around. A year in a minute.</p>
         <span class="go">tree.mankai.art
+          <svg viewBox="0 0 16 8" fill="none" aria-hidden="true"><path d="M0 4h14M11 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="card lilac" href="https://www.youtube.com/watch?v=MI7qqToHGDg">
+      <div class="shot" data-ph="ZOETROPE">
+        <img src="zoetrope.jpg" width="1200" height="630"
+             loading="lazy" decoding="async"
+             alt="Sisi walking past the word ZOETROPE, spelled in blocky black letters on a lilac-lit corridor wall.">
+      </div>
+      <div class="meta">
+        <span class="idx">03</span>
+        <h2>ZOETROPE</h2>
+        <span class="sub">with Sisi · loop film</span>
+        <span class="go">watch on youtube
           <svg viewBox="0 0 16 8" fill="none" aria-hidden="true"><path d="M0 4h14M11 1l3 3-3 3" stroke="currentColor" stroke-width="1.1"/></svg>
         </span>
       </div>
