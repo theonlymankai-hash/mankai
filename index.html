@@ -13,14 +13,14 @@
 <meta property="og:url" content="https://mankai.art/">
 <meta property="og:title" content="Mank Ai">
 <meta property="og:description" content="Work made with AI: animation, audioreactive pieces and experiences. MANKEY THUNDER — Croydon. DANCING BUILDINGS — London. ZOETROPE — one walk turned into a seamless loop. Passage of Time — one oak through a year as a 3D gaussian splat. ECLIPSE — the 2026 total solar eclipse, previsualised.">
-<meta property="og:image" content="https://mankai.art/preview.png">
+<meta property="og:image" content="https://mankai.art/preview.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The wordmark MANK AI on a near-black field, the AI in amber.">
+<meta property="og:image:alt" content="Mankey, the Mank Ai logo, next to the wordmark MANK AI (the AI in amber) and the three categories: Animation, Audioreactive, Experiences.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mank Ai">
 <meta name="twitter:description" content="Work made with AI: animation, audioreactive pieces and experiences. MANKEY THUNDER, DANCING BUILDINGS, ZOETROPE, Passage of Time, ECLIPSE.">
-<meta name="twitter:image" content="https://mankai.art/preview.png">
+<meta name="twitter:image" content="https://mankai.art/preview.png?v=2">
 <!-- inline favicon: a corona ring -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%2308090c'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23e8b34a' stroke-width='5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +118,10 @@
   footer .brand{display:flex;align-items:center;gap:10px;font:700 15px/1 var(--head);letter-spacing:.06em;color:var(--text)}
   footer .brand b{color:var(--amber)}
   footer img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+  .socials{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px}
+  .socials .btn{color:var(--dim)}
+  .socials .btn:hover{color:var(--text);border-color:var(--amber)}
+  .socials svg{width:16px;height:16px;flex:none}
 
   /* big screens: the column grows with the screen, so 16:9 and 21:9 get big cards */
   @media (min-width:1600px){
@@ -247,6 +251,14 @@
   <footer>
     <span class="brand"><img src="mankey.jpg" width="600" height="600" alt=""><span>MANK<b>AI</b></span></span>
     <span>Work made with AI, by an artist.</span>
+    <nav class="socials" aria-label="Elsewhere">
+      <a class="btn" rel="me" href="https://www.youtube.com/@theartofpi" aria-label="YouTube: @theartofpi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg>@theartofpi</a>
+      <a class="btn" rel="me" href="https://www.instagram.com/the_art_of_pi/" aria-label="Instagram: @the_art_of_pi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>@the_art_of_pi</a>
+      <a class="btn" rel="me" href="https://www.instagram.com/mank.ai42/" aria-label="Instagram: @mank.ai42">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>@mank.ai42</a>
+    </nav>
   </footer>
 
 </div>
